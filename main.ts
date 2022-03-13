@@ -72,7 +72,6 @@ maqueen.IR_callbackUser(function (message) {
         maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 0)
     }
 })
-let ultrasound = 0
 let status = 0
 status = 0
 let tune = 0
@@ -94,7 +93,15 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    ultrasound = maqueen.Ultrasonic(PingUnit.Centimeters)
+    if (maqueen.Ultrasonic(PingUnit.Centimeters) < 10) {
+        basic.showLeds(`
+            # . . . #
+            . . . . .
+            . . # . .
+            # . . . #
+            . # # # .
+            `)
+    }
 })
 basic.forever(function () {
     if (status == 1) {
