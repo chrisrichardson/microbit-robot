@@ -1,4 +1,7 @@
 maqueen.IR_callbackUser(function (message) {
+    if (message == 7) {
+        status = 7
+    }
     if (message == 22) {
         basic.showLeds(`
             # # # # .
@@ -69,6 +72,7 @@ maqueen.IR_callbackUser(function (message) {
         maqueen.motorRun(maqueen.Motors.M1, maqueen.Dir.CW, 0)
     }
 })
+let ultrasound = 0
 let status = 0
 status = 0
 let tune = 0
@@ -90,7 +94,15 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
+    ultrasound = maqueen.Ultrasonic(PingUnit.Centimeters)
+})
+basic.forever(function () {
     if (status == 1) {
         music.playMelody("B - B - B - B - ", 120)
+    }
+})
+basic.forever(function () {
+    if (status == 7) {
+        music.playMelody("G B A G C5 B A B ", 200)
     }
 })
