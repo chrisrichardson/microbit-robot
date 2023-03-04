@@ -93,17 +93,6 @@ basic.forever(function () {
     }
 })
 basic.forever(function () {
-    if (maqueen.Ultrasonic(PingUnit.Centimeters) < 10) {
-        basic.showLeds(`
-            # . . . #
-            . . . . .
-            . . # . .
-            # . . . #
-            . # # # .
-            `)
-    }
-})
-basic.forever(function () {
     if (status == 1) {
         music.playMelody("B - B - B - B - ", 120)
     }
